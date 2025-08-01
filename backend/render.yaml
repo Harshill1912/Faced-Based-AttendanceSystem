@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: face-attendance-app
+    env: python
+    buildCommand: ""
+    startCommand: "gunicorn backend.app:app"
+    envVars:
+      - fromDotEnv: true
