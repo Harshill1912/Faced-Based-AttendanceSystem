@@ -1,8 +1,11 @@
 [phases.setup]
-nixPkgs = ["python310", "python310Packages.pip"]
+nixPkgs = ["python310", "python310Packages.pip", "python310Packages.setuptools", "python310Packages.wheel"]
+
+[phases.install]
+cmds = ["python3 -m pip install --break-system-packages -r backend/requirements.txt"]
 
 [phases.build]
-cmds = ["pip install -r backend/requirements.txt"]
+cmds = []
 
 [phases.start]
-cmd = "python backend/app.py"
+cmd = "python3 backend/app.py"
